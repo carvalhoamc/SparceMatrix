@@ -41,7 +41,7 @@ public class GraphBasic {
 
 
 	public void imprimeNaTela() {
-		//System.out.println("\nListas de Adjacencia:");
+
 		for (int i = 0; i < totalVertexAmount; i++) {
 			GraphVertex u = vertexList[i];
 			System.out.print(u.getVertexName()+": ");
@@ -53,7 +53,7 @@ public class GraphBasic {
 			}
 			System.out.println();
 		}
-		//System.out.println("\nMatriz de Adjacencia:");
+
 		for (int i = 0; i < totalVertexAmount; i++) {
 			for (int j = 0; j < totalVertexAmount; j++)
 				if (adjacencyMatrix[i][j] != null)

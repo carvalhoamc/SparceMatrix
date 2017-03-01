@@ -16,7 +16,7 @@ public class GraphArc {
 
 	private GraphVertex source;
 	private GraphVertex target;
-	private int arcValue;
+	private double arcValue;
 	private int outflowValue;
 
 
@@ -25,7 +25,7 @@ public class GraphArc {
 		arcValue = 0; outflowValue = 0;
 	}
 
-	public GraphArc(GraphVertex s, GraphVertex t, int initialArcValue) {
+	public GraphArc(GraphVertex s, GraphVertex t, double initialArcValue) {
 		this(s, t);
 		arcValue = initialArcValue;
 	}
@@ -46,7 +46,7 @@ public class GraphArc {
 		this.target = target;
 	}
 
-	public int getArcValue() {
+	public double getArcValue() {
 		return arcValue;
 	}
 

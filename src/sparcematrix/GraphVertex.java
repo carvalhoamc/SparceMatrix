@@ -14,39 +14,16 @@ package sparcematrix;
 
 public class GraphVertex {
 
-	private int indexId;
-	private String vertexName;
 	private double matrixValue;
 	private int row;
 	private int col;
-	private GraphVertex backVertex;
-	private GraphVertex baseVertex;
 
 
-	public GraphVertex(int i, double keyValue,String name, int r, int c) {
-		indexId = i;
-		vertexName = name;
-		matrixValue = keyValue;
+
+	public GraphVertex(int r, int c, double value) {
+		matrixValue = value;
 		row = r;
 		col = c;
-		backVertex = null;
-		baseVertex = null;
-	}
-
-	public int getIndexId() {
-		return indexId;
-	}
-
-	public void setIndexId(int indexId) {
-		this.indexId = indexId;
-	}
-
-	public String getVertexName() {
-		return vertexName;
-	}
-
-	public void setVertexName(String vertexName) {
-		this.vertexName = vertexName;
 	}
 
 	public double getMatrixValue() {
@@ -71,22 +48,6 @@ public class GraphVertex {
 
 	public void setCol(int col) {
 		this.col = col;
-	}
-
-	public GraphVertex getBackVertex() {
-		return backVertex;
-	}
-
-	public void setBackVertex(GraphVertex backVertex) {
-		this.backVertex = backVertex;
-	}
-
-	public GraphVertex getBaseVertex() {
-		return baseVertex;
-	}
-
-	public void setBaseVertex(GraphVertex baseVertex) {
-		this.baseVertex = baseVertex;
 	}
 }
 

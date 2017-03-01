@@ -14,6 +14,7 @@ package sparcematrix;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.LinkedList;
 
 
 public class Main {
@@ -22,7 +23,7 @@ public class Main {
 		GraphBasic operador = new GraphBasic();
 		File source = new File("/home/amc/DATAFILES/matriz1.txt");
 		try {
-			operador.buildGraph(source);
+			LinkedList[] A = operador.loadSparceMatrix(source);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

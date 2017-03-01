@@ -28,51 +28,12 @@ public class SparceMatrix {
 	public SparceMatrix(){
 
 
-
-
-
-
-
-
-
-
 	}
 
 
 	public void printMatrix(){
 
 	}
-
-
-
-	/*public SparceMatrix addMatrix(SparceMatrix A, SparceMatrix B){
-
-
-
-	}*/
-
-	/**
-	 * Converte a Lista com os dados do arquivo para o
-	 * formato Celula
-	 * Na lista, a primeira linha lida e o numero de linhas e colunas da matriz esparca.
-	 * Os demais elementos sao a linha, a coluna e o valor.
-	 * 4,4
-	 * 1,1,50.0
-	 * 2,1,10.0
-	 * 2,3,20.0
-	 * 4,1,-30.0
-	 * 4,3,-60.0
-	 * 4,4,5.0
-	 */
-	public void trataDados(){
-
-
-
-
-
-	}
-
-
 
 	void addMatrix(){
 
@@ -83,9 +44,6 @@ public class SparceMatrix {
 
 
 	}
-
-
-
 
 
 }

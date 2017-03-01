@@ -17,59 +17,28 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
 public class GraphBasic {
 
 
-	private int totalVertexAmount;
-	private int totalArcAmount;
+	private int totalRow;
+	private int totalCol;
+	private int totalNotNullElement;
 	private GraphVertex[] vertexList;
 	private LinkedList[] adjacencyList;
-	private GraphArc[][] adjacencyMatrix;
 	private static List<String> dataFromFile = new ArrayList<>();
 
 
 	public GraphBasic() {
-		totalVertexAmount = 0;
-		totalArcAmount = 0;
+		totalRow = 0;
+		totalCol = 0;
+		totalNotNullElement = 0;
 	}
 
 
-
-
-	public void imprimeNaTela() {
-
-		for (int i = 0; i < totalVertexAmount; i++) {
-			GraphVertex u = vertexList[i];
-			System.out.print(u.getVertexName()+": ");
-			Iterator it = adjacencyList[i].iterator();
-			while (it.hasNext()) {
-				GraphArc a = (GraphArc)it.next();
-				GraphVertex v = a.getTarget();
-				System.out.print(v.getVertexName()+", ");
-			}
-			System.out.println();
-		}
-
-		for (int i = 0; i < totalVertexAmount; i++) {
-			for (int j = 0; j < totalVertexAmount; j++)
-				if (adjacencyMatrix[i][j] != null)
-					System.out.print("1 ");
-				else
-					System.out.print("0 ");
-			System.out.println();
-		}
-
-		System.out.println("Total de vertices: "+ totalVertexAmount);
-		System.out.println("Total de arcos: "+ totalArcAmount);
-	}
-
-
-
-	public void buildGraph(File arquivo) throws IOException {
+	public LinkedList[]  loadSparceMatrix(File arquivo) throws IOException {
 		/**
 		 * 4,4         	Matrix dimentions
 		 * 1,1,50.0		row,col,value
@@ -88,70 +57,83 @@ public class GraphBasic {
 			while((s = reader.readLine()) != null)
 			{
 				dataFromFile.add(s);
-				totalVertexAmount++;
+				totalNotNullElement++;
 			}
 		}
-		totalVertexAmount--;
+		totalNotNullElement--;
 		int j = 1;
-		int coma1Position = 0;
-		int coma2Position = 0;
-		int row = 0;
-		int col = 0;
-		double vAux = 0;
-		String aux = null;
-		vertexList = new GraphVertex[totalVertexAmount];
-		adjacencyList = new LinkedList[totalVertexAmount];
-		//totalArcAmount =
+		int coma1Position;
+		int coma2Position;
+		int row;
+		int col;
+		double vAux;
+		String aux;
+		s = dataFromFile.get(0);
+		coma1Position = s.indexOf(',');
+		aux = s.substring(0, coma1Position);
+		totalRow = Integer.parseInt(aux);
+		aux = s.substring(coma1Position + 1);
+		totalCol = Integer.parseInt(aux);
+
+		vertexList = new GraphVertex[totalNotNullElement];
+		adjacencyList = new LinkedList[totalRow];
 
 
-		for (int i = 0; i < totalVertexAmount; i++){
+
+		for (int i = 0; i < totalNotNullElement; i++) {
 			s = dataFromFile.get(j);
 			coma1Position = s.indexOf(',');
-			aux = s.substring(0,coma1Position);
+			aux = s.substring(0, coma1Position);
 			row = Integer.parseInt(aux);
-			coma2Position = s.indexOf(',',coma1Position+1);
-			aux = s.substring(coma1Position+1,coma2Position);
+			row--; //because JAVA begin with index 0
+			coma2Position = s.indexOf(',', coma1Position + 1);
+			aux = s.substring(coma1Position + 1, coma2Position);
 			col = Integer.parseInt(aux);
-			aux = s.substring(coma2Position+1);
+			col--;
+			aux = s.substring(coma2Position + 1);
 			vAux = Double.parseDouble(aux);
 			j++;
-
-			GraphVertex v = new GraphVertex(i,vAux,String.valueOf(vAux),row,col);
+			GraphVertex v = new GraphVertex(row, col, vAux);
 			vertexList[i] = v;
+		}
+
+		for(int i = 0; i < totalRow; i++){
 			adjacencyList[i] = new LinkedList();
+		}
 
-
-
-
-
-
-
-
-
+		for (int i = 0; i < totalNotNullElement; i++){
+			row = vertexList[i].getRow();
+			adjacencyList[row].addLast(vertexList[i]);
 
 
 
 		}
 
+		return adjacencyList;
 	}
 
-
-
-
-	public int getTotalVertexAmount() {
-		return totalVertexAmount;
+	public int getTotalRow() {
+		return totalRow;
 	}
 
-	public void setTotalVertexAmount(int totalVertexAmount) {
-		this.totalVertexAmount = totalVertexAmount;
+	public void setTotalRow(int totalRow) {
+		this.totalRow = totalRow;
 	}
 
-	public int getTotalArcAmount() {
-		return totalArcAmount;
+	public int getTotalCol() {
+		return totalCol;
 	}
 
-	public void setTotalArcAmount(int totalArcAmount) {
-		this.totalArcAmount = totalArcAmount;
+	public void setTotalCol(int totalCol) {
+		this.totalCol = totalCol;
+	}
+
+	public int getTotalNotNullElement() {
+		return totalNotNullElement;
+	}
+
+	public void setTotalNotNullElement(int totalNotNullElement) {
+		this.totalNotNullElement = totalNotNullElement;
 	}
 
 	public GraphVertex[] getVertexList() {
@@ -170,11 +152,11 @@ public class GraphBasic {
 		this.adjacencyList = adjacencyList;
 	}
 
-	public GraphArc[][] getAdjacencyMatrix() {
-		return adjacencyMatrix;
+	public static List<String> getDataFromFile() {
+		return dataFromFile;
 	}
 
-	public void setAdjacencyMatrix(GraphArc[][] adjacencyMatrix) {
-		this.adjacencyMatrix = adjacencyMatrix;
+	public static void setDataFromFile(List<String> dataFromFile) {
+		GraphBasic.dataFromFile = dataFromFile;
 	}
 }

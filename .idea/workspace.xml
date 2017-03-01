@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="48382324-fd1e-466b-ad0b-9d9966aee7aa" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sparcematrix/GraphArc.java" afterPath="$PROJECT_DIR$/src/sparcematrix/GraphArc.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sparcematrix/GraphBasic.java" afterPath="$PROJECT_DIR$/src/sparcematrix/GraphBasic.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sparcematrix/GraphVertex.java" afterPath="$PROJECT_DIR$/src/sparcematrix/GraphVertex.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sparcematrix/Main.java" afterPath="$PROJECT_DIR$/src/sparcematrix/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sparcematrix/SparceMatrix.java" afterPath="$PROJECT_DIR$/src/sparcematrix/SparceMatrix.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -826,7 +821,7 @@
       <workItem from="1487577485791" duration="7648000" />
       <workItem from="1487961801898" duration="190000" />
       <workItem from="1487963657936" duration="92000" />
-      <workItem from="1488311294973" duration="10067000" />
+      <workItem from="1488311294973" duration="10122000" />
     </task>
     <task id="LOCAL-00001" summary="Init.">
       <created>1488311495516</created>
@@ -856,11 +851,18 @@
       <option name="project" value="LOCAL" />
       <updated>1488312083119</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Create Sparce Matrix data structure OK.">
+      <created>1488378982992</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1488378982992</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17997000" />
+    <option name="totallyTimeSpent" value="18052000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1044" extended-state="6" />
@@ -926,7 +928,8 @@
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
     <MESSAGE value="Init." />
-    <option name="LAST_COMMIT_MESSAGE" value="Init." />
+    <MESSAGE value="Create Sparce Matrix data structure OK." />
+    <option name="LAST_COMMIT_MESSAGE" value="Create Sparce Matrix data structure OK." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
